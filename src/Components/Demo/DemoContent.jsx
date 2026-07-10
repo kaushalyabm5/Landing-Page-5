@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 export default function DemoContent() {
   const [chatLog, setChatLog] = useState([
-    { sender: "agent", type: "text", text: "Hello! Welcome to Mara Studio Advanced Sandbox. 🌟\n\nI am Flow Agent, powered by AI. Try typing anything below (e.g., 'Do you have discounts?', 'Show me shirts', or 'Where is my order?') to see how I handle your store!", time: "10:00 AM" }
+    { sender: "agent", type: "text", text: "Hello! Welcome to VooStore. 🌟\n\nI am Jezzy, powered by AI. Try typing anything below (e.g., 'Do you have discounts?', 'Show me shirts', or 'Where is my order?') to see how I handle your store!", time: "10:00 AM" }
   ]);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -103,10 +103,10 @@ export default function DemoContent() {
                 </div>
                 <div className="leading-tight">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-sm font-semibold tracking-wide text-gray-800">Mara Studio Bot</span>
+                    <span className="text-sm font-semibold tracking-wide text-gray-800">VooStore</span>
                     <div className="w-3 h-3 bg-[#34b7f1] rounded-full flex items-center justify-center text-[7px] text-white font-bold">✓</div>
                   </div>
-                  <small className="text-[10px] text-emerald-700/80 font-medium block">Flow Agent Live Connected</small>
+                  <small className="text-[10px] text-emerald-700/80 font-medium block">Jezzy AI Live Connected</small>
                 </div>
               </div>
               
@@ -195,7 +195,7 @@ export default function DemoContent() {
 
                 {isTyping && (
                   <div className="self-start bg-white rounded-xl rounded-tl-none p-2 px-3.5 flex gap-1 shadow-xs border border-black/5 items-center">
-                    <span className="text-[9px] text-gray-400 font-medium mr-1">Flow Agent is typing</span>
+                    <span className="text-[9px] text-gray-400 font-medium mr-1">Jezzy is typing</span>
                     <span className="w-1 h-1 rounded-full bg-emerald-600 opacity-60 animate-bounce"></span>
                     <span className="w-1 h-1 rounded-full bg-emerald-600 opacity-60 animate-bounce [animation-delay:0.2s]"></span>
                     <span className="w-1 h-1 rounded-full bg-emerald-600 opacity-60 animate-bounce [animation-delay:0.4s]"></span>
