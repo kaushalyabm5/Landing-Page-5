@@ -91,7 +91,7 @@ export default function DemoHero() {
         </span>
         
         <h1 className="font-medium text-3xl sm:text-5xl md:text-6xl lg:text-[4.4rem] leading-[1.2] md:leading-[1.3] tracking-tight mb-6 text-neutral-900 w-full z-10 px-10 sm:px-16 md:px-0">
-          Test It Yourself: See How <span className='bg-gradient-to-r from-[#25D366] via-[#1877F2] to-[#E1306C] bg-clip-text text-transparent font-semibold'>Feels!</span> <br className="hidden sm:inline" />
+          Test It Yourself See How <span className='bg-gradient-to-r from-[#25D366] via-[#1877F2] to-[#E1306C] bg-clip-text text-transparent font-semibold'>Feels!</span> <br className="hidden sm:inline" />
         </h1>
         
         {/* Subtitle Description */}
