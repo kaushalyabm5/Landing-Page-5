@@ -2,8 +2,8 @@ import { ArrowRight, CheckCircle2, MessageSquare, ShoppingBag, RefreshCw, Lock, 
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 // Imported local hoodie asset
-import hoodieImg from "../../assets/hoodie2.jpg"; 
-import helmetImg from "../../assets/steelbird.png"; 
+import hoodieImg from "../../assets/homeDemoImg/hoodie.png"; 
+import helmetImg from "../../assets/homeDemoImg/steelbird1.png"; 
 
 export default function Demo() {
   const [language, setLanguage] = useState("english"); // 'english' or 'sinhala'
@@ -173,7 +173,7 @@ export default function Demo() {
   const sinhalaInteractiveSteps = [
     { key: "0", label: "Check Inventory", text: "Oyala gawa steelbird sb20 helmet eka thiyenwada?" },
     { key: "1", label: "Purchase Flow", text: "Mata meka ganna ona. Kohomada order karanne?" },
-    { key: "2", label: "Submit Details", text: "Ok. Details: Full Name: Kasun Perera...." },
+    { key: "2", label: "Submit Details", text: "Ok. Details: Full Name: Kaushalya...." },
     { key: "3", label: "Finalize Order", text: "Super, confirm unama mata text ekak daanna!" },
   ];
 
