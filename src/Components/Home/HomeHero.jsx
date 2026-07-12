@@ -291,7 +291,7 @@ export default function HomeHero() {
                   <span className="w-7 h-7 rounded-lg bg-emerald-500/20 flex flex-shrink-0 items-center justify-center text-[0.9rem] text-emerald-400">🎉</span>
                   <div className="text-left">
                     <div className="flex items-center justify-between gap-1 w-full">
-                      <span className="text-[0.68rem] font-bold text-white">Agent Jezzy</span>
+                      <span className="text-[0.68rem] font-bold text-white">Jezzy AI</span>
                       <span className="text-[0.55rem] font-medium text-neutral-400">now</span>
                     </div>
                     <p className="text-[0.6rem] text-neutral-300 font-normal mt-0.5 leading-snug">Order Confirmed! Summary updated. Payment link sent.</p>
@@ -320,7 +320,7 @@ export default function HomeHero() {
                       <span className="w-[28px] h-[28px] rounded-full bg-gradient-to-br from-emerald-600 to-emerald-900 flex items-center justify-center font-bold text-[0.6rem] text-white shadow-sm border border-white/10">FA</span>
                     </div>
                     <div className="leading-tight ml-1 truncate">
-                      <strong className="text-[0.72rem] block font-medium tracking-tight text-[#E9EDEF]">Agent Jezzy</strong>
+                      <strong className="text-[0.72rem] block font-medium tracking-tight text-[#E9EDEF]">Jezzy AI</strong>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 text-[#AEBAC1] pl-2 flex-shrink-0">
