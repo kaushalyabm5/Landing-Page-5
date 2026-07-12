@@ -4,7 +4,6 @@ import FeaturesPage from './Components/Features/FeaturesPage'
 import SmoothScroll from './Components/SmoothScroll'
 import Footer from './Components/Footer'
 import ScrollToTop from './Components/ScrollToTop'
-import Navbar2 from './Components/Navbar2'
 import DemoPage from './Components/Demo/DemoPage'
 import LoadingScreen from './Components/LoadingScreen'
 import { Route, Routes, useLocation } from 'react-router-dom'
@@ -13,6 +12,7 @@ import ContactForm from './Components/Pricing/ContactForm'
 import Navbar3 from './Components/Navbar3'
 import ContactUs from './Components/Contact/ContactUs'
 import Login from './Components/LoginPage/Login'
+import { Helmet } from 'react-helmet-async' // 💡 SEO Schema එක Inject කිරීමට භාවිත කරයි
 
 const App = () => {
   const location = useLocation();
@@ -65,6 +65,26 @@ const App = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F4F6F1]">
+      
+      {/* 💡 GLOBAL PRODUCT SCHEMA MARKUP FOR SEARCH ENGINES */}
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Jezzy AI",
+            "operatingSystem": "All",
+            "applicationCategory": "BusinessApplication",
+            "url": "https://jezzy.ai",
+            "description": "Active AI Employee for WhatsApp Business that automates customer chat replies and accepts orders in Sri Lanka.",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "LKR"
+            }
+          })}
+        </script>
+      </Helmet>
+
       {isLoading && <LoadingScreen isExiting={isExiting} />}
 
       <SmoothScroll />

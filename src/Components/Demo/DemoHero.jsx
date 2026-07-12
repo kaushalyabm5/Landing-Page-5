@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async'; // Perfect SEO සඳහා helmet-async භාවිතය
 
 export default function DemoHero() {
   const conversation = [
@@ -77,8 +78,25 @@ export default function DemoHero() {
   return (
     <section id='hero' className='scroll-mt-[74px] relative bg-white overflow-hidden min-h-screen flex flex-col items-center justify-center px-4 py-12'>
       
+      {/* SEO META TAGS - DIRECT LINKS INJECTED INTO HEAD */}
+      <Helmet>
+        <title>Interactive Demo: See Our WhatsApp AI Assistant in Action</title>
+        <meta name="description" content="Experience how Jezzy AI automates chat commerce. Watch our live simulation showing instant, context-aware customer replies, automatic order creation, and seamless checkout." />
+        
+        {/* Canonical Link */}
+        <link rel="canonical" href="https://jezzyai.com/demo" /> 
+        
+        {/* Open Graph Tags for Social Links */}
+        <meta property="og:title" content="Live Simulation: Experience Jezzy Chat Commerce AI" />
+        <meta property="og:description" content="Watch how our AI assistant interprets natural human messages to capture orders instantly on WhatsApp and Instagram." />
+        <meta property="og:type" content="website" />
+        
+        {/* Social Media URL*/}
+        <meta property="og:url" content="https://jezzyai.com/demo" />
+      </Helmet>
+
       {/* LIGHT-OPTIMIZED AMBIENT GLOW EFFECT */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] max-w-7xl h-[40vh] rounded-full bg-[radial-gradient(circle,rgba(16,185,129,0.06)_0%,transparent_70%)] blur-[60px] md:blur-[100px]" />
       </div>
 
@@ -90,8 +108,9 @@ export default function DemoHero() {
           Live Simulation
         </span>
         
+        {/* Optimized H1 with Target Keywords for Search Engines */}
         <h1 className="font-medium text-3xl sm:text-5xl md:text-6xl lg:text-[4.4rem] leading-[1.2] md:leading-[1.3] tracking-tight mb-6 text-neutral-900 w-full z-10 px-10 sm:px-16 md:px-0">
-          Test It Yourself See How <span className='bg-gradient-to-r from-[#25D366] via-[#1877F2] to-[#E1306C] bg-clip-text text-transparent font-semibold'>Feels!</span> <br className="hidden sm:inline" />
+          Test It Yourself See How It <span className='bg-gradient-to-r from-[#25D366] via-[#1877F2] to-[#E1306C] bg-clip-text text-transparent font-semibold'>Feels!</span> <br className="hidden sm:inline" />
         </h1>
         
         {/* Subtitle Description */}
@@ -100,12 +119,13 @@ export default function DemoHero() {
         </p>
 
         {/* Premium Minimalist Scroll Button */}
-           <motion.button
+        <motion.button
           onClick={scrollToBottom}
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-col items-center gap-2 group cursor-pointer focus:outline-none select-none"
+          aria-label="Scroll down to explore core features"
         >
           <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-neutral-700 group-hover:text-emerald-600 transition-colors duration-300">
             Explore Features
@@ -119,6 +139,7 @@ export default function DemoHero() {
               ease: "easeInOut"
             }}
             className="w-6 h-10 rounded-full border border-neutral-800 group-hover:border-emerald-500/40 bg-neutral-50/50 flex items-start justify-center p-1.5 transition-colors duration-300 shadow-sm"
+            aria-hidden="true"
           >
             {/* Minimalist Scrolling Wheel Dot */}
             <motion.div 

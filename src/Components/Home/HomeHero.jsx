@@ -1,27 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { HashLink } from 'react-router-hash-link';
-import { BadgeCheck } from 'lucide-react'; // Premium verification badge icon
+import { Helmet } from 'react-helmet-async'; // SEO Meta Tags සදහා
+import { BadgeCheck } from 'lucide-react'; 
 import { FaWhatsapp } from 'react-icons/fa'; 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Import local images from your PC
+// Local images ආනයනය කිරීම
 import user1 from '../../assets/clientsImg/1.png';
 import user2 from '../../assets/clientsImg/2.png';
 import user3 from '../../assets/clientsImg/3.png';
-
-// Import the actual Meta brand asset file from your directory
 import metaLogo from '../../assets/homeherologo/meta1.png'; 
 
-// Group your local images into an array for mapping
 const userImages = [user1, user2, user3];
-
-// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HomeHero() {
   const [activeStep, setActiveStep] = useState(0);
-  const compRef = useRef(null); // Ref for the main container bounding context
+  const compRef = useRef(null); 
 
   const conversation = [
     { type: 'out', sender: 'Customer', text: 'Hi! Do you have linen shirts in white, medium size?', time: '14:02' },
@@ -46,10 +42,9 @@ export default function HomeHero() {
   const [showNotification, setShowNotification] = useState(false);
   const chatContainerRef = useRef(null);
 
-  // Core GSAP Orchestration Hook
+  // GSAP Animations
   useEffect(() => {
     let ctx = gsap.context(() => {
-      // 1. Entrance Timeline (Hero Section Top Elements)
       const entranceTl = gsap.timeline({
         defaults: { ease: 'power3.out', duration: 1 }
       });
@@ -62,7 +57,6 @@ export default function HomeHero() {
         .fromTo('[data-animate="cta-buttons"]', { opacity: 0, y: 20 }, { opacity: 1, y: 0 }, '-=0.8')
         .fromTo('[data-animate="trust-cards"]', { opacity: 0, y: 30 }, { opacity: 1, y: 0 }, '-=0.7');
 
-      // 2. ScrollTrigger Array for Mid/Bottom elements
       gsap.fromTo('[data-animate="device-wrapper"]', 
         { opacity: 0, x: -50, scale: 0.95 },
         { 
@@ -164,10 +158,22 @@ export default function HomeHero() {
   return (
     <section ref={compRef} id='hero' className='scroll-mt-[74px] relative bg-[white] overflow-hidden min-h-screen flex flex-col items-center justify-start pt-20 md:pt-28 pb-16 px-4'>
       
+      {/* SEO META TAGS - DYNAMICALLY INJECTED INTO HEAD */}
+      <Helmet>
+        <title>Jezzy AI | Sri Lanka's No 01 Active AI Employee</title>
+        <meta name="description" content="Jezzy AI is an authorized WhatsApp Official Partner that automated customer chat replies, accepts orders, and increases e-commerce sales in Sri Lanka 24/7." />
+        <link rel="canonical" href="https://jezzyai.com/" /> {/*domain*/}
+        
+        {/* Open Graph Tags for Social Media Sharing */}
+        <meta property="og:title" content="Jezzy AI - #1 Active AI Employee Built for Your Business" />
+        <meta property="og:description" content="Automate customer support, take orders, and follow up automatically 24/7 with the authorized WhatsApp Partner in Sri Lanka." />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       {/* HEADER SECTION */}
       <div className="w-full max-w-7xl mx-auto text-center relative z-10 flex flex-col items-center mb-12 sm:mb-20 px-2">
         <span data-animate="badge" className="inline-flex items-center gap-[5px] px-3.5 py-1 rounded-full bg-neutral-50 border border-neutral-200 text-[11px] sm:text-xs font-medium text-[var(--main-green-color)] tracking-tight mb-5 shadow-sm select-none opacity-0">
-          <FaWhatsapp className="w-5 h-5" />
+          <FaWhatsapp className="w-5 h-5" aria-hidden="true" />
           Authorized WhatsApp Official Partner
         </span>
         
@@ -181,7 +187,7 @@ export default function HomeHero() {
           Jezzy AI replies to your customers like a human, answers questions, takes orders, and follows up automatically, 24/7. It helps you respond faster, close more sales, increase revenue, and grow profits while you simply watch the orders arrive.
         </p>
 
-        {/* TRUSTED BY ROW (Cleaned up duplicate container wrappers) */}
+        {/* TRUSTED BY ROW */}
         <div data-animate="trust-row" className="flex flex-col sm:flex-row items-center gap-3 mb-8 select-none opacity-0">
           <div className="flex -space-x-2">
             {userImages.map((imageSrc, index) => (
@@ -189,7 +195,7 @@ export default function HomeHero() {
                 key={index} 
                 className="inline-block h-7 w-7 rounded-full ring-2 ring-white object-cover" 
                 src={imageSrc} 
-                alt={`User ${index + 1}`} 
+                alt={`Satisfied business client profile avatar ${index + 1}`} 
               />
             ))}
             <div className="flex items-center justify-center h-7 w-7 rounded-full bg-emerald-950 ring-2 ring-white text-emerald-400 font-semibold text-[10px]">
@@ -206,7 +212,7 @@ export default function HomeHero() {
           <HashLink to='/contact-us' className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 pl-7 pr-2.5 py-2 rounded-[.5rem] bg-[var(--main-green-color)] hover:bg-[var(--main-green-color)]/90 text-white font-semibold text-[0.92rem] tracking-tight transition-all duration-300 shadow-[0_10px_30px_rgba(16,185,129,0.25)] transform hover:-translate-y-0.5">
             Contact Us
             <span className="w-8 h-8 rounded-full bg-white/10 group-hover:bg-white/20 flex items-center justify-center transition-colors duration-300">
-              <svg className="w-4 h-4 text-white transform group-hover:translate-x-0.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+              <svg className="w-4 h-4 text-white transform group-hover:translate-x-0.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
             </span>
@@ -223,7 +229,7 @@ export default function HomeHero() {
             <div className="flex items-center justify-between w-full mb-3">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#ceecf1] to-[#ffffff] flex items-center justify-center shadow-sm p-1.5">
-                  <img src={metaLogo} alt="Meta Logo" className="w-full h-full object-contain" />
+                  <img src={metaLogo} alt="Official Meta Partner Badge Identification" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <div className="text-[13px] font-bold text-neutral-900 tracking-tight flex items-center gap-1.5">
@@ -233,7 +239,7 @@ export default function HomeHero() {
                   <div className="text-[11px] font-semibold text-neutral-500">Business Partner</div>
                 </div>
               </div>
-              <BadgeCheck className="w-6 h-6 text-blue-500 flex-shrink-0" />
+              <BadgeCheck className="w-6 h-6 text-blue-500 flex-shrink-0" aria-hidden="true" />
             </div>
             <div className="font-bold text-neutral-800 text-xs mb-1 flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
@@ -249,7 +255,7 @@ export default function HomeHero() {
             <div className="flex items-center justify-between w-full mb-3">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#25D366] to-emerald-600 flex items-center justify-center shadow-sm">
-                  <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                  <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M2.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-3.571c1.554.921 3.19 1.408 4.86 1.409 5.4 0 9.794-4.339 9.797-9.673.001-2.584-1.002-5.014-2.825-6.837-1.822-1.823-4.25-2.827-6.834-2.828-5.405 0-9.802 4.342-9.806 9.677-.001 1.748.461 3.454 1.34 4.97l-.988 3.606 3.708-.959zM17.14 14.1c-.282-.141-1.666-.812-1.924-.906-.257-.094-.444-.141-.63.141-.187.281-.722.906-.886 1.093-.163.188-.328.211-.61.071-.282-.141-1.19-.435-2.267-1.383-.839-.739-1.405-1.651-1.569-1.933-.164-.282-.018-.434.123-.574.127-.127.282-.328.423-.492.141-.164.188-.282.282-.469.094-.188.047-.352-.023-.492-.071-.141-.63-1.499-.863-2.062-.227-.547-.457-.473-.63-.482-.162-.008-.35-.01-.539-.01-.189 0-.497.07-.757.352-.26.282-.992.957-.992 2.334 0 1.378 1.016 2.707 1.157 2.895.141.188 2.001 3.012 4.848 4.215.678.286 1.206.457 1.616.585.681.213 1.3.183 1.79.111.545-.081 1.666-.671 1.9-.1.319-.234.61-.796.61-1.377 0-.581-.285-.862-.41-.952z"/>
                   </svg>
                 </div>
@@ -258,7 +264,7 @@ export default function HomeHero() {
                   <div className="text-[11px] font-semibold text-neutral-500">Partner Node</div>
                 </div>
               </div>
-              <BadgeCheck className="w-6 h-6 text-emerald-500 flex-shrink-0" />
+              <BadgeCheck className="w-6 h-6 text-emerald-500 flex-shrink-0" aria-hidden="true" />
             </div>
             <div className="font-bold text-neutral-800 text-xs mb-1 flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -301,24 +307,24 @@ export default function HomeHero() {
                   <span className="font-sans">09:41</span>
                   <div className="flex items-center gap-1.5">
                     <span className="text-[6.5px] font-bold opacity-60 tracking-tighter">5G</span>
-                    <svg className="w-2.5 h-2.5 opacity-70" viewBox="0 0 24 24" fill="currentColor"><path d="M2 22h20V2L2 22z"/></svg>
-                    <svg className="w-3 h-3 opacity-70" viewBox="0 0 24 24" fill="currentColor"><path d="M17 5H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-1 1.5v2H8v-2h8z"/></svg>
+                    <svg className="w-2.5 h-2.5 opacity-70" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 22h20V2L2 22z"/></svg>
+                    <svg className="w-3 h-3 opacity-70" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 5H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-1 1.5v2H8v-2h8z"/></svg>
                   </div>
                 </div>
 
                 {/* WhatsApp Chat Header */}
                 <div className="bg-[#1F2C34] text-[#E9EDEF] p-[2px_14px_10px] flex items-center justify-between z-30 relative border-b border-white/[0.03]">
                   <div className="flex items-center gap-1.5 min-w-0">
-                    <svg className="w-4 h-4 text-[#00a884] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                    <svg className="w-4 h-4 text-[#00a884] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
                     <div className="relative flex-shrink-0 ml-0.5">
                       <span className="w-[28px] h-[28px] rounded-full bg-gradient-to-br from-emerald-600 to-emerald-900 flex items-center justify-center font-bold text-[0.6rem] text-white shadow-sm border border-white/10">FA</span>
                     </div>
                     <div className="leading-tight ml-1 truncate">
-                      <b className="text-[0.72rem] block font-medium tracking-tight text-[#E9EDEF]">Agent Jezzy</b>
+                      <strong className="text-[0.72rem] block font-medium tracking-tight text-[#E9EDEF]">Agent Jezzy</strong>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 text-[#AEBAC1] pl-2 flex-shrink-0">
-                    <svg className="w-[14px] h-[14px]" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C9.1 6.42 8.9 5.23 8.9 4 c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.62c0-.55-.45-1-1-1z"/></svg>
+                    <svg className="w-[14px] h-[14px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C9.1 6.42 8.9 5.23 8.9 4 c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.62c0-.55-.45-1-1-1z"/></svg>
                   </div>
                 </div>
 
@@ -382,8 +388,8 @@ export default function HomeHero() {
                   <div className="flex-1 bg-[#2A3942] h-[28px] rounded-full px-3 flex items-center justify-between">
                     <span className="text-white/30 text-[0.68rem]">Message</span>
                   </div>
-                  <button type="button" className="w-[28px] h-[28px] bg-[#00a884] rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-sm hover:scale-105 active:scale-95 transition-transform">
-                    <svg className="w-[14px] h-[14px] text-white mr-[1px] mt-[1px]" viewBox="0 0 24 24" fill="currentColor">
+                  <button type="button" aria-label="Send automated WhatsApp message" className="w-[28px] h-[28px] bg-[#00a884] rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-sm hover:scale-105 active:scale-95 transition-transform">
+                    <svg className="w-[14px] h-[14px] text-white mr-[1px] mt-[1px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
                     </svg>
                   </button>
