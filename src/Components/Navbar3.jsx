@@ -117,7 +117,7 @@ export default function Navbar3() {
         </HashLink>
 
         {/* Desktop Navigation Links */}
-        <ul className="hidden xl:flex gap-[3rem] list-none items-center">
+        <ul className="hidden xl:flex gap-[3.3rem] list-none items-center">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
