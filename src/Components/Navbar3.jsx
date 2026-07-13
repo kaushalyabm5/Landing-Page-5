@@ -145,16 +145,18 @@ export default function Navbar3() {
         {/* Actions Menu */}
         <div className="flex items-center gap-4 z-50">
           {/* Log in Button */}
-          <HashLink 
-            to="/login" 
+          <a
+            href="https://app.jezzyai.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className={`hidden xl:inline-flex p-[8px_15px] text-[0.82rem] items-center gap-2 rounded-[.5rem] border font-medium transition-all duration-200 ${
-              isDarkNavbarPage 
-                ? 'bg-neutral-800 text-neutral-100 border-neutral-700 hover:bg-neutral-700' 
+              isDarkNavbarPage
+                ? 'bg-neutral-800 text-neutral-100 border-neutral-700 hover:bg-neutral-700'
                 : 'bg-white text-black border-neutral-300'
             }`}
           >
             Log in
-          </HashLink>
+          </a>
 
           {/* Get Started Button */}
           <HashLink 
@@ -213,13 +215,15 @@ export default function Navbar3() {
               <li className={`w-full text-center my-1 ${isDarkNavbarPage ? 'text-neutral-700' : 'text-neutral-300'}`}>|</li>
 
               <li className="w-full text-center mt-2">
-                <HashLink 
-                  to="/login" 
+                <a
+                  href="https://app.jezzyai.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-[12px_36px] text-[1.05rem] inline-flex items-center justify-center rounded-[.8rem] bg-[white] hover:bg-[white] border border-neutral-400 text-black font-bold transition-all duration-200 w-full max-w-[260px] mx-auto"
                   onClick={closeMenu}
                 >
                   Log In
-                </HashLink>
+                </a>
               </li>
 
               <li className="w-full text-center mt-2">
